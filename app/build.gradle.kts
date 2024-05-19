@@ -1,5 +1,7 @@
 plugins {
     alias(libs.plugins.android.application)
+    alias(libs.plugins.hilt)
+    kotlin("kapt")
     alias(libs.plugins.jetbrains.kotlin.android)
 }
 
@@ -51,6 +53,12 @@ android {
 
 dependencies {
 
+    implementation(libs.kdani.network)
+    implementation(libs.hilt)
+    implementation(libs.hilt.compose)
+    implementation(libs.timber)
+    kapt(libs.hilt.compiler)
+    kapt(libs.moshi.codegen)
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.lifecycle.runtime.ktx)
     implementation(libs.androidx.activity.compose)

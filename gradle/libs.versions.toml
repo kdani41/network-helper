@@ -25,6 +25,7 @@ coilCore = "2.6.0"
 mockk = "1.13.10"
 turbine = "1.1.0"
 maven-vanniktech = "0.28.0"
+kdani-network = "1.0.0"
 
 [libraries]
 hilt = { group = "com.google.dagger", name = "hilt-android", version.ref = "hilt" }
@@ -34,6 +35,7 @@ hilt-compose = { group = "androidx.hilt", name = "hilt-navigation-compose", vers
 timber = { group = "com.jakewharton.timber", name = "timber", version.ref = "timber" }
 arch-core-testing = { group = "androidx.arch.core", name = "core-testing", version.ref = "archCoreTesting" }
 turbine = { group = "app.cash.turbine", name = "turbine", version.ref = "turbine" }
+kdani-network = { group = "io.github.kdani41", name = "kdani-network", version.ref = "kdani-network" }
 
 coroutines-test = { group = "org.jetbrains.kotlinx", name = "kotlinx-coroutines-test", version.ref = "kotlin-coroutines" }
 retrofit = { group = "com.squareup.retrofit2", name = "retrofit", version.ref = "retrofit" }
