@@ -1,6 +1,7 @@
 plugins {
     alias(libs.plugins.android.library)
     alias(libs.plugins.jetbrains.kotlin.android)
+    alias(libs.plugins.maven.publish)
     kotlin("kapt")
 }
 
@@ -34,12 +35,10 @@ android {
 }
 
 dependencies {
-
-    kapt(libs.moshi.codegen)
-    implementation(libs.retrofit)
+    api(libs.retrofit)
+    api(libs.moshi)
+    api(libs.retrofit.moshi)
     implementation(libs.timber)
-    implementation(libs.moshi)
-    implementation(libs.retrofit.moshi)
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)
     implementation(libs.material)

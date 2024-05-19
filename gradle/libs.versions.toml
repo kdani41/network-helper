@@ -24,6 +24,7 @@ coil = "2.3.3"
 coilCore = "2.6.0"
 mockk = "1.13.10"
 turbine = "1.1.0"
+maven-vanniktech = "0.28.0"
 
 [libraries]
 hilt = { group = "com.google.dagger", name = "hilt-android", version.ref = "hilt" }
@@ -68,6 +69,8 @@ compose-material = { group = "androidx.compose.material", name = "material", ver
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }
 android-library = { id = "com.android.library", version.ref = "agp" }
+kotlin = { id = "org.jetbrains.kotlin.jvm", version.ref = "kotlin" }
+maven-publish = { id = "com.vanniktech.maven.publish", version.ref = "maven-vanniktech" }
+
 jetbrains-kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
-jetbrains-kotlin-jvm = { id = "org.jetbrains.kotlin.jvm", version.ref = "jetbrainsKotlinJvm" }
 hilt = { id = "com.google.dagger.hilt.android", version.ref = "hilt" }
