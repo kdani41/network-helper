@@ -39,8 +39,5 @@ dependencies {
     api(libs.moshi)
     api(libs.retrofit.moshi)
     implementation(libs.timber)
-    implementation(libs.androidx.core.ktx)
-    implementation(libs.androidx.appcompat)
-    implementation(libs.material)
     testImplementation(libs.junit)
 }
