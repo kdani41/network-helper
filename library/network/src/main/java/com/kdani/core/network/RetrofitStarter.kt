@@ -18,6 +18,10 @@ object RetrofitStarter {
 
     /**
      * Builds a retrofit instance for the provided baseUrl.
+     * @param baseUrl of the API.
+     * @param timeoutInMillis timeout for the client.
+     * @param additionalInterceptors additional interceptors if required for the client.
+     * @param convertorFactory a custom factory if not using default `MoshiConverterFactory#create`.
      */
     fun build(
         baseUrl: String,
