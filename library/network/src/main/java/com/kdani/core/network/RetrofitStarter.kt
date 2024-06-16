@@ -12,10 +12,6 @@ object RetrofitStarter {
     internal var GLOBAL_TIMEOUT = 5000L
         private set
 
-    internal val client by lazy {
-        OkHttpClient().newBuilder()
-    }
-
     /**
      * Builds a retrofit instance for the provided baseUrl.
      * @param baseUrl of the API.
@@ -27,13 +23,14 @@ object RetrofitStarter {
         baseUrl: String,
         timeoutInMillis: Long = GLOBAL_TIMEOUT,
         additionalInterceptors: List<Interceptor> = emptyList(),
-        convertorFactory: MoshiConverterFactory? = null
+        convertorFactory: MoshiConverterFactory? = null,
+        httpBuilder: OkHttpClient.Builder = OkHttpClient().newBuilder(),
     ): Retrofit {
         require(baseUrl.isNotEmpty()) {
             "base url can't be empty!!"
         }
         GLOBAL_TIMEOUT = timeoutInMillis
-        val builder = client.apply {
+        val builder = httpBuilder.apply {
             addInterceptor(ConnectionInterceptor())
             additionalInterceptors.forEach(::addInterceptor)
         }

@@ -1,6 +1,7 @@
 package com.kdani.core.network
 
 import okhttp3.Interceptor
+import okhttp3.OkHttpClient
 import org.junit.Assert
 import org.junit.Before
 import org.junit.Test
@@ -24,9 +25,18 @@ internal class RetrofitStarterTest {
     @Test
     fun `test interceptors`() {
         val baseUrl = "https://google.com/"
+        val clientBuilder = OkHttpClient().newBuilder()
         val dummyIntercept = Interceptor { chain -> chain.proceed(chain.request()) }
-        sut.build(baseUrl, additionalInterceptors = listOf(dummyIntercept))
+        sut.build(
+            baseUrl,
+            additionalInterceptors = listOf(dummyIntercept),
+            httpBuilder = clientBuilder
+        )
 
-        Assert.assertEquals(2, sut.client.interceptors().size)
+        Assert.assertEquals(2, clientBuilder.interceptors().size)
+        val secondBuilder = OkHttpClient().newBuilder()
+        sut.build(baseUrl, httpBuilder = secondBuilder)
+
+        Assert.assertEquals(1, secondBuilder.interceptors().size)
     }
 }
