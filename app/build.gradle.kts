@@ -1,6 +1,8 @@
 plugins {
     alias(libs.plugins.android.application)
+    alias(libs.plugins.kotlinx.serialization)
     alias(libs.plugins.hilt)
+    alias(libs.plugins.compose.compiler)
     kotlin("kapt")
     alias(libs.plugins.jetbrains.kotlin.android)
 }
@@ -41,9 +43,6 @@ android {
     buildFeatures {
         compose = true
     }
-    composeOptions {
-        kotlinCompilerExtensionVersion = "1.5.1"
-    }
     packaging {
         resources {
             excludes += "/META-INF/{AL2.0,LGPL2.1}"
@@ -53,7 +52,9 @@ android {
 
 dependencies {
 
-    implementation(libs.kdani.network)
+//    implementation(libs.kdani.network)
+    implementation(project(":library:network"))
+    implementation(project(":library:ktor-helper"))
     implementation(libs.hilt)
     implementation(libs.hilt.compose)
     implementation(libs.timber)

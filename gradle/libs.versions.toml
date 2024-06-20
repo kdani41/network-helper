@@ -1,6 +1,6 @@
 [versions]
 agp = "8.4.0"
-kotlin = "1.9.0"
+kotlin = "2.0.0"
 coreKtx = "1.13.0"
 junit = "4.13.2"
 junitVersion = "1.1.5"
@@ -8,7 +8,7 @@ lifecycleRuntimeKtx = "2.7.0"
 activityCompose = "1.9.0"
 composeBom = "2023.08.00"
 jetbrainsKotlinJvm = "1.9.0"
-hilt = "2.50"
+hilt = "2.51"
 hiltCompose = "1.0.0"
 kotlin-coroutines = "1.7.3"
 retrofit = "2.9.0"
@@ -22,10 +22,12 @@ timber = "5.0.1"
 navigation = "2.7.7"
 coil = "2.3.3"
 coilCore = "2.6.0"
+ktor = "2.0.0"
 mockk = "1.13.10"
 turbine = "1.1.0"
 maven-vanniktech = "0.28.0"
 kdani-network = "1.0.0"
+espressoCore = "3.5.1"
 
 [libraries]
 hilt = { group = "com.google.dagger", name = "hilt-android", version.ref = "hilt" }
@@ -35,8 +37,17 @@ hilt-compose = { group = "androidx.hilt", name = "hilt-navigation-compose", vers
 timber = { group = "com.jakewharton.timber", name = "timber", version.ref = "timber" }
 arch-core-testing = { group = "androidx.arch.core", name = "core-testing", version.ref = "archCoreTesting" }
 turbine = { group = "app.cash.turbine", name = "turbine", version.ref = "turbine" }
-kdani-network = { group = "io.github.kdani41", name = "kdani-network", version.ref = "kdani-network" }
-
+kdani-network = { group = "io.github.kdani41", name = "kdani-network", version.ref = "ktor" }
+ktor-content-negotiation = { module = "io.ktor:ktor-client-content-negotiation", version.ref = "ktor" }
+ktor-kotlinx-serialization = { module = "io.ktor:ktor-serialization-kotlinx-json", version.ref = "ktor" }
+ktor-client-logging = { module = "io.ktor:ktor-client-logging", version.ref = "ktor" }
+ktor-client-core = { module = "io.ktor:ktor-client-core", version.ref = "ktor" }
+ktor-client-cio = { module = "io.ktor:ktor-client-cio", version.ref = "ktor" }
+ktor-client-ios = { module = "io.ktor:ktor-client-ios", version.ref = "ktor" }
+ktor-client-json = { module = "io.ktor:ktor-client-json", version.ref = "ktor" }
+ktor-client-serialization = { module = "io.ktor:ktor-client-serialization", version.ref = "ktor" }
+ktor-networkjvm = { module = "io.ktor:ktor-network-jvm", version.ref = "ktor" }
+coroutines-core = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-core", version.ref = "kotlin-coroutines" }
 coroutines-test = { group = "org.jetbrains.kotlinx", name = "kotlinx-coroutines-test", version.ref = "kotlin-coroutines" }
 retrofit = { group = "com.squareup.retrofit2", name = "retrofit", version.ref = "retrofit" }
 retrofit-moshi = { group = "com.squareup.retrofit2", name = "converter-moshi", version.ref = "retrofit" }
@@ -67,12 +78,15 @@ androidx-material3 = { group = "androidx.compose.material3", name = "material3" 
 androidx-appcompat = { group = "androidx.appcompat", name = "appcompat", version.ref = "appcompat" }
 material = { group = "com.google.android.material", name = "material", version.ref = "material" }
 compose-material = { group = "androidx.compose.material", name = "material", version.ref = "materialCompose" }
+androidx-espresso-core = { group = "androidx.test.espresso", name = "espresso-core", version.ref = "espressoCore" }
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }
 android-library = { id = "com.android.library", version.ref = "agp" }
+kotlinx-multiplatform = { id = "org.jetbrains.kotlin.multiplatform", version.ref = "kotlin" }
+kotlinx-serialization = { id = "org.jetbrains.kotlin.plugin.serialization", version.ref = "kotlin" }
+compose-compiler = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "kotlin" }
 kotlin = { id = "org.jetbrains.kotlin.jvm", version.ref = "kotlin" }
 maven-publish = { id = "com.vanniktech.maven.publish", version.ref = "maven-vanniktech" }
-
 jetbrains-kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
 hilt = { id = "com.google.dagger.hilt.android", version.ref = "hilt" }

@@ -1,5 +1,6 @@
 # RetrofitStarter
 [![Maven Central Version](https://img.shields.io/maven-central/v/io.github.kdani41/kdani-network)](https://central.sonatype.com/artifact/io.github.kdani41/kdani-network/)
+[![Maven Central Version](https://img.shields.io/maven-central/v/io.github.kdani41/kdani-ktor-network)](https://central.sonatype.com/artifact/io.github.kdani41/kdani-ktor-network/)
 
 ### Description
 Light weight library to simplify network calls using retrofit & moshi.
