@@ -37,6 +37,7 @@ android {
 dependencies {
     api(libs.retrofit)
     api(libs.moshi)
+    api(libs.network.logging)
     api(libs.retrofit.moshi)
     implementation(libs.timber)
     testImplementation(libs.junit)

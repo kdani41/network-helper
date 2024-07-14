@@ -26,6 +26,7 @@ ktor = "2.0.0"
 mockk = "1.13.10"
 turbine = "1.1.0"
 maven-vanniktech = "0.28.0"
+network-logging = "4.12.0"
 kdani-network = "1.0.0"
 espressoCore = "3.5.1"
 
@@ -46,11 +47,11 @@ ktor-client-cio = { module = "io.ktor:ktor-client-cio", version.ref = "ktor" }
 ktor-client-ios = { module = "io.ktor:ktor-client-ios", version.ref = "ktor" }
 ktor-client-json = { module = "io.ktor:ktor-client-json", version.ref = "ktor" }
 ktor-client-serialization = { module = "io.ktor:ktor-client-serialization", version.ref = "ktor" }
-ktor-networkjvm = { module = "io.ktor:ktor-network-jvm", version.ref = "ktor" }
 coroutines-core = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-core", version.ref = "kotlin-coroutines" }
 coroutines-test = { group = "org.jetbrains.kotlinx", name = "kotlinx-coroutines-test", version.ref = "kotlin-coroutines" }
 retrofit = { group = "com.squareup.retrofit2", name = "retrofit", version.ref = "retrofit" }
 retrofit-moshi = { group = "com.squareup.retrofit2", name = "converter-moshi", version.ref = "retrofit" }
+network-logging = { group = "com.squareup.okhttp3", name = "logging-interceptor", version.ref = "network-logging" }
 okhttp = { group = "com.squareup.okhttp3", name = "okhttp", version.ref = "okhttp" }
 coil = { group = "com.github.skydoves", name = "landscapist-coil3", version.ref = "coil" }
 coil-core = { group = "io.coil-kt", name = "coil", version.ref = "coilCore" }
