@@ -13,7 +13,8 @@ sealed interface NetworkResponse<out T : Any> {
     /**
      * Represents API error.
      */
-    data class ApiError(val throwable: Throwable) : NetworkResponse<Nothing>
+    data class ApiError(val throwable: Throwable, val errorBody: String? = null) :
+        NetworkResponse<Nothing>
 
     /**
      * Represents empty screen when data is not present.

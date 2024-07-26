@@ -1,15 +1,11 @@
 package com.kdani.network_helper.di
 
 import com.kdani.core.network.RetrofitStarter
-import com.kdani.ktor.KtorStarter
-import com.kdani.network_helper.network.SampleKtorService
-import com.kdani.network_helper.network.SampleKtorServiceImpl
 import com.kdani.network_helper.network.SampleService
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
-import io.ktor.client.HttpClient
 import retrofit2.Retrofit
 import javax.inject.Singleton
 
@@ -21,14 +17,6 @@ internal object MainModule {
     @Singleton
     @Provides
     fun provideRetrofit() = RetrofitStarter.build(BASE_URL)
-
-    @Singleton
-    @Provides
-    fun provideKtor(): HttpClient = KtorStarter.buildClient(BASE_URL)
-
-    @Singleton
-    @Provides
-    fun provideKtorApi(impl: SampleKtorServiceImpl): SampleKtorService = impl
 
     @Singleton
     @Provides

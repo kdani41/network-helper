@@ -30,20 +30,29 @@ internal class ResponseCallTransformer<T : Any>(
 
     override fun request(): Request = delegate.request()
 
-    override fun timeout(): Timeout = Timeout().timeout(RetrofitStarter.GLOBAL_TIMEOUT, TimeUnit.MILLISECONDS)
+    override fun timeout(): Timeout =
+        Timeout().timeout(RetrofitStarter.GLOBAL_TIMEOUT, TimeUnit.MILLISECONDS)
 
     override fun enqueue(callback: Callback<NetworkResponse<T>>) {
         delegate.enqueue(object : Callback<T> {
             override fun onResponse(call: Call<T>, response: Response<T>) {
                 val body = response.body()
-                if (body == null) {
-                    callback.onResponse(
-                        this@ResponseCallTransformer, Response.success(NetworkResponse.Empty)
-                    )
+                if (response.isSuccessful) {
+                    if (body != null) {
+                        callback.onResponse(
+                            this@ResponseCallTransformer,
+                            Response.success(NetworkResponse.Success(body))
+                        )
+                    } else {
+                        callback.onResponse(
+                            this@ResponseCallTransformer, Response.success(NetworkResponse.Empty)
+                        )
+                    }
                 } else {
+                    val error = response.errorBody()?.string()
                     callback.onResponse(
                         this@ResponseCallTransformer,
-                        Response.success(NetworkResponse.Success(body))
+                        Response.success(NetworkResponse.ApiError(Exception("Server error"), error))
                     )
                 }
             }

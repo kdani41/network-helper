@@ -52,9 +52,8 @@ android {
 
 dependencies {
 
-//    implementation(libs.kdani.network)
-    implementation(project(":library:network"))
-    implementation(project(":library:ktor-helper"))
+    implementation(libs.kdani.network)
+//    implementation(project(":library:network"))
     implementation(libs.hilt)
     implementation(libs.hilt.compose)
     implementation(libs.timber)
