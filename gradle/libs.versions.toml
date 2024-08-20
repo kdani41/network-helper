@@ -27,7 +27,7 @@ mockk = "1.13.10"
 turbine = "1.1.0"
 maven-vanniktech = "0.28.0"
 network-logging = "4.12.0"
-kdani-network = "1.0.0"
+kdani-network = "1.0.5"
 espressoCore = "3.5.1"
 
 [libraries]
@@ -38,7 +38,7 @@ hilt-compose = { group = "androidx.hilt", name = "hilt-navigation-compose", vers
 timber = { group = "com.jakewharton.timber", name = "timber", version.ref = "timber" }
 arch-core-testing = { group = "androidx.arch.core", name = "core-testing", version.ref = "archCoreTesting" }
 turbine = { group = "app.cash.turbine", name = "turbine", version.ref = "turbine" }
-kdani-network = { group = "io.github.kdani41", name = "kdani-network", version.ref = "ktor" }
+kdani-network = { group = "io.github.kdani41", name = "kdani-network", version.ref = "kdani-network" }
 ktor-content-negotiation = { module = "io.ktor:ktor-client-content-negotiation", version.ref = "ktor" }
 ktor-kotlinx-serialization = { module = "io.ktor:ktor-serialization-kotlinx-json", version.ref = "ktor" }
 ktor-client-logging = { module = "io.ktor:ktor-client-logging", version.ref = "ktor" }

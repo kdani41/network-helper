@@ -22,12 +22,5 @@ internal class MainViewModel @Inject constructor(
                 is coreNetwork.Success -> Timber.i("sample res = $res")
             }
         }
-        viewModelScope.launch {
-            when (val res = sampleService.addAccount()) {
-                is coreNetwork.ApiError -> Timber.e("error = ${res.errorBody}")
-                coreNetwork.Empty -> Timber.e("empty")
-                is coreNetwork.Success -> Timber.i("sample res = $res")
-            }
-        }
     }
 }
