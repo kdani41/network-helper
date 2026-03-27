@@ -42,4 +42,5 @@ dependencies {
     api(libs.retrofit.gson)
     implementation(libs.timber)
     testImplementation(libs.junit)
+    testImplementation(libs.mockk)
 }
