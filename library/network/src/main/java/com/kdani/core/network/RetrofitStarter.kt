@@ -4,6 +4,7 @@ import com.kdani.core.network.adapter.ResponseFactory
 import com.kdani.core.network.interceptors.ConnectionInterceptor
 import okhttp3.Interceptor
 import okhttp3.OkHttpClient
+import retrofit2.Converter
 import retrofit2.Retrofit
 import retrofit2.converter.moshi.MoshiConverterFactory
 
@@ -17,13 +18,14 @@ object RetrofitStarter {
      * @param baseUrl of the API.
      * @param timeoutInMillis timeout for the client.
      * @param additionalInterceptors additional interceptors if required for the client.
-     * @param convertorFactory a custom factory if not using default `MoshiConverterFactory#create`.
+     * @param convertorFactory a custom [Converter.Factory] (e.g. [MoshiConverterFactory] or
+     *   `GsonConverterFactory`). Defaults to [MoshiConverterFactory.create] when null.
      */
     fun build(
         baseUrl: String,
         timeoutInMillis: Long = GLOBAL_TIMEOUT,
         additionalInterceptors: List<Interceptor> = emptyList(),
-        convertorFactory: MoshiConverterFactory? = null,
+        convertorFactory: Converter.Factory? = null,
         httpBuilder: OkHttpClient.Builder = OkHttpClient().newBuilder(),
     ): Retrofit {
         require(baseUrl.isNotEmpty()) {

@@ -39,6 +39,7 @@ dependencies {
     api(libs.moshi)
     api(libs.network.logging)
     api(libs.retrofit.moshi)
+    api(libs.retrofit.gson)
     implementation(libs.timber)
     testImplementation(libs.junit)
 }

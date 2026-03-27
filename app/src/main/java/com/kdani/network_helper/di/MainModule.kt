@@ -6,6 +6,7 @@ import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
+import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
 import javax.inject.Singleton
 
@@ -16,7 +17,15 @@ internal object MainModule {
 
     @Singleton
     @Provides
-    fun provideRetrofit() = RetrofitStarter.build(BASE_URL)
+    fun provideRetrofit(): Retrofit {
+        val loggingInterceptor = HttpLoggingInterceptor().apply {
+            setLevel(HttpLoggingInterceptor.Level.BODY)
+        }
+        return RetrofitStarter.build(
+            baseUrl = BASE_URL,
+            additionalInterceptors = listOf(loggingInterceptor)
+        )
+    }
 
     @Singleton
     @Provides
